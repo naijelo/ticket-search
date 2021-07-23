@@ -1,10 +1,26 @@
 import React from "react";
-import Button from "./Button";
+import StyledButton from "./Button.style.js";
 
 export default {
-    title: "Button",
-    component: Button
+    title: "StyledButton",
+    component: StyledButton
 }
 
-export const Primary = () => <Button variant="primary">Primary</Button>
-export const Secondary = () => <Button variant="secondary">Secondary</Button>
+const Template = (args) => <StyledButton {...args}/>
+
+export const Primary = Template.bind({});
+Primary.args = {
+    color: "#ffa928",
+    children: "Primary"
+}
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+    color: "grey",
+    children: "Secondary"
+}
+
+
+
+// export const Primary = () => <Button variant="primary">Primary</Button>
+// export const Secondary = () => <Button variant="secondary">Secondary</Button>

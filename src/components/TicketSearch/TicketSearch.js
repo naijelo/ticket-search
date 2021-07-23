@@ -1,16 +1,45 @@
 import React, {useState, useEffect} from "react";
-import "./TicketSearch.css";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
-import Pagination from "../Pagination/Pagination";
-import DropDown from "../DropDown/DropDown";
-import DatePicker from "react-datepicker";
+
+import { StyledButton } from "../Button/Button.style.js";
+import { StyledInput } from "../Input/Input.style.js";
+import { StyledPagination } from "../Pagination/Pagination.style.js";
+import { StyledDropDown } from "../DropDown/DropDown.style.js";
 import Cards from "../Cards/Cards";
-import * as axios from "axios";
+
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import * as axios from "axios";
+import jsondata from '../Input/cities.json';
+
+import styled from "styled-components";
+
+const TicketWrapper = styled.form `
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+const InputWrapper = styled.div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    @media (max-width: 575px) {
+        flex-direction: column;
+        justify-content: baseline;
+    }
+`
+
+const InputSubWrapper = styled.div`
+    display: flex;
+    flex-direction:column;
+`
 
 const TicketSearch = (props) => {
 
+    
     // const proxy = "https://cors-anywhere.herokuapp.com/";
     // const token = "e44551a4aa602315a353a5fc2d7bed15";
     // const api = "http://api.travelpayouts.com/data/ru/cities.json";
@@ -44,16 +73,21 @@ const TicketSearch = (props) => {
         setCurrentPage(pageNumber);
     }
     
+    //fetch cities from aviasales api using useEffect cause of sideeffect
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
             const response = await axios.get("/cities.json");
             setCities(response.data);
+            if (!response) {
+                setCities(jsondata);
+            }
             setLoading(false);
         }
         fetchData();
     }, []);
     
+    //implement filter to find matches in response and input
     const handleFilter = (event, setFilteredData, setWordEntered) => {
         
         if (event.target.value === "") {
@@ -66,6 +100,7 @@ const TicketSearch = (props) => {
         setWordEntered(event.target.value);
     };
 
+    //make object from received data and send it to server
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = {
@@ -87,6 +122,7 @@ const TicketSearch = (props) => {
         });
     };
 
+    //add city from dropdown list to input
     const addCity = (event, addCityToState, setFilteredData) => {
         const target = event.target;
         if (target.tagName.toLowerCase() === "li") {
@@ -95,6 +131,7 @@ const TicketSearch = (props) => {
         }
     }
 
+    //get date from date-input
     const handleInput = (date) => {
         // const fullYear = date.getFullYear();
         // const month = date.getMonth() + 1;
@@ -107,37 +144,35 @@ const TicketSearch = (props) => {
 
     return (
         <div>
-            <form className="ticketSearch"
-                onSubmit={handleSubmit}
-                >
-                <div className="inputWrapper">
-                    <div className="inputWrapper__from">
-                    <Input label={"Откуда"} 
-                    value={inputFrom}
-                    onInput={event => handleFilter(event, setFilteredDataFrom, setInputFrom)} 
-                    // onInput={event => setInputFrom(event.target.value)}
-
+            <TicketWrapper
+                onSubmit={handleSubmit}>
+                <InputWrapper>
+                    <InputSubWrapper>
+                    <StyledInput label={"Откуда"} 
+                        value={inputFrom}
+                        onInput={event => handleFilter(event, setFilteredDataFrom, setInputFrom)} 
                     />
                     
                     {filteredDataFrom.length !== 0 && 
-                        <DropDown setCustomInput={setInputFrom} 
+                        <StyledDropDown setCustomInput={setInputFrom} 
                             filteredData={filteredDataFrom} 
                             setFilteredData={setFilteredDataFrom}
                             addCity={addCity}/>}
-                        </div>
+                    </InputSubWrapper>
 
-                    <Input label={"Куда"} 
-                    value={inputTo}
-                    onChange={event => handleFilter(event, setFilteredDataTo, setInputTo)} 
-                    // onInput={event => setInputTo(event.target.value)}
+                    <InputSubWrapper>
+                    <StyledInput label={"Куда"} 
+                        value={inputTo}
+                        onInput={event => handleFilter(event, setFilteredDataTo, setInputTo)} 
                     />
                     {filteredDataTo.length !== 0 && 
-                        <DropDown setCustomInput={setInputTo} 
+                        <StyledDropDown setCustomInput={setInputTo} 
                             filteredData={filteredDataTo} 
                             setFilteredData={setFilteredDataTo}
                             addCity={addCity}/>}
+                    </InputSubWrapper>
 
-                </div>
+                </InputWrapper>
 
                     <DatePicker 
                         placeholderText="Выберите дату"
@@ -149,20 +184,18 @@ const TicketSearch = (props) => {
                         required={true}
                     />
 
-                    <Button title="Submit" 
-                        children={"Проверить наличие"}
+                    <StyledButton title="Submit" 
+                        children={"Поиск"}
                     />
-            </form>
+            </TicketWrapper>
 
             <Cards ticketData={currentCards} 
                     loading={loading}
                     dataError={dataError}/>
-            <Pagination postsPerPage={postsPerPage} totalPosts={ticketData.length} paginate={paginate}/>
+            <StyledPagination postsPerPage={postsPerPage} totalPosts={ticketData.length} paginate={paginate}/>
 
         </div>
     )
 }
-
-    
 
 export default TicketSearch;

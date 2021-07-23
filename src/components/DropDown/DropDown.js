@@ -1,16 +1,16 @@
 import React from "react";
-import "./DropDown.css";
+// import "./DropDown.css";
 
-const DropDown = ({ theme= "dropdown__lighttheme",filteredData, addCity, setCustomInput, setFilteredData }) => {
+const DropDown = ({ filteredData, addCity, setCustomInput, setFilteredData, ...rest}) => {
     return (
-    <ul className={`dropdown ${theme}`}>
-        {filteredData.map((value, key) => {
-            return (
-                <li className="from" key={key} onClick={event => addCity(event, setCustomInput, setFilteredData)}>
-                {value.name}
-                </li>
-            );
-        })}
+        <ul {...rest}>
+        {filteredData.map((value, index) => {
+             return(
+                    <li className="from" key={index} onClick={event => addCity(event, setCustomInput, setFilteredData)}>
+                        {value.name}
+                    </li>
+             )
+            })}
         </ul>
     )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Pagination.css";
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+const Pagination = ({ postsPerPage, totalPosts, paginate, ...rest }) => {
     const pageNumber = [];
 
     for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
@@ -9,7 +9,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     }
 
     return (
-        <nav>
+        <nav {...rest}>
             <ul className="pagination">
                 {pageNumber.map(number => (
                     <li key={number} className="pageItem">

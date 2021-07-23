@@ -6,5 +6,15 @@ export default {
     component: DropDown
 }
 
-export const WhiteTheme = () => <DropDown theme="dropdown__lighttheme"/>
-export const BlackTheme = () => <DropDown theme="dropdown__darktheme"/>
+const filteredDataFake = ["Москва", "Минск", "Владивосток", "Кострома", "Канберра"];
+
+export const WhiteTheme = () => <DropDown 
+        theme="dropdown__lighttheme"
+        // addCity={addCity}
+        filteredData={["Москва", "Минск", "Владивосток", "Кострома", "Канберра"]}
+        />
+
+export const BlackTheme = () => <DropDown 
+        theme="dropdown__darktheme"
+        filteredData={["Москва", "Минск", "Владивосток", "Кострома", "Канберра"]}
+        />
