@@ -4,7 +4,7 @@ import { StyledButton } from "../Button/Button.style.js";
 import { StyledInput } from "../Input/Input.style.js";
 import { StyledPagination } from "../Pagination/Pagination.style.js";
 import { StyledDropDown } from "../DropDown/DropDown.style.js";
-import Cards from "../Cards/Cards";
+import { StyledCards } from "../Cards/Cards.style.js";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -19,6 +19,9 @@ const TicketWrapper = styled.form `
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media (max-width: 575px) {
+        justify-content: start;
+    }
 `
 const InputWrapper = styled.div `
     display: flex;
@@ -28,7 +31,6 @@ const InputWrapper = styled.div `
     margin: 0 auto;
     @media (max-width: 575px) {
         flex-direction: column;
-        justify-content: baseline;
     }
 `
 
@@ -189,7 +191,7 @@ const TicketSearch = (props) => {
                     />
             </TicketWrapper>
 
-            <Cards ticketData={currentCards} 
+            <StyledCards ticketData={currentCards} 
                     loading={loading}
                     dataError={dataError}/>
             <StyledPagination postsPerPage={postsPerPage} totalPosts={ticketData.length} paginate={paginate}/>

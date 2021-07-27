@@ -7,6 +7,9 @@ export const StyledPagination = styled(Pagination)`
     justify-content: center;
     li {
         list-style: none;
+        &:hover {
+            background-color: white;
+        }
     }
     a {
         color: black;
@@ -15,5 +18,8 @@ export const StyledPagination = styled(Pagination)`
         text-decoration: none;
         border: white 1px solid;
         width: 20px;
+    }
+    &:hover {
+        color: white;
     }
 `

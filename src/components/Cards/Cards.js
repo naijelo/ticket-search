@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cards = ({ticketData, loading, dataError}) => {
+const Cards = ({ticketData, loading, dataError, ...rest}) => {
     if (loading) {
         return <h2>Loading...</h2>
     }
@@ -8,10 +8,10 @@ const Cards = ({ticketData, loading, dataError}) => {
         return <h3>К сожалению, мы ничего не нашли по запросу. Давайте попробуем ещё раз?:)</h3>
     }
     return (
-        <ul>{ticketData.map((item, index) => (
+        <ul {...rest}>{ticketData.map((item, index) => (
                 <li key={index}>
-                    Дата вылета: {item.depart_date}
-                    Цена в рублях: {item.value}
+                    <div>Дата вылета: {item.depart_date}</div>
+                    <div>Цена в рублях: {item.value}</div>
                 </li>
     ))}
         </ul>

@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export const StyledButton = styled(Button) `
     border: none;
-    height: 10vh;
+    height: 5vh;
     width: 15vw;
     line-height: 2vh;
     text-align: center;
