@@ -5,9 +5,7 @@ import { StyledInput } from "../Input/Input.style.js";
 import { StyledPagination } from "../Pagination/Pagination.style.js";
 import { StyledDropDown } from "../DropDown/DropDown.style.js";
 import { StyledCards } from "../Cards/Cards.style.js";
-
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import Calendar from "../Calendar/Calendar";
 
 import * as axios from "axios";
 import jsondata from '../Input/cities.json';
@@ -65,6 +63,9 @@ const TicketSearch = (props) => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(10);
+
+    //activate drop down menu from button
+    const [dateVisibility, setDateVisibility] = useState(false);
     
     //paginator support data
     const indexOfLastCard = currentPage * postsPerPage;
@@ -110,7 +111,7 @@ const TicketSearch = (props) => {
             "to": cities.find((item) => inputTo === item.name).code,
             "date": fullDate,
         }
-
+        console.log(formData);
         const requestData =`?origin=${formData.from}&destination=${formData.to}&depart_day=${formData.date}&one_way=true`;
 
         axios.get("http://min-prices.aviasales.ru/calendar_preload" + requestData)
@@ -135,19 +136,19 @@ const TicketSearch = (props) => {
 
     //get date from date-input
     const handleInput = (date) => {
-        // const fullYear = date.getFullYear();
-        // const month = date.getMonth() + 1;
-        // const day = date.getDate();
-        // const fullDateTemp = fullYear+"-"+month+"-"+day;
         const fullDateTemp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
         setFullDate(fullDateTemp);
         setInputDate(date);
     }
 
+    //visibility of calendar
+    let changeVisibility = () => setDateVisibility(!dateVisibility);
+
     return (
         <div>
             <TicketWrapper
-                onSubmit={handleSubmit}>
+                onSubmit={handleSubmit}
+                >
                 <InputWrapper>
                     <InputSubWrapper>
                     <StyledInput label={"Откуда"} 
@@ -165,7 +166,7 @@ const TicketSearch = (props) => {
                     <InputSubWrapper>
                     <StyledInput label={"Куда"} 
                         value={inputTo}
-                        onInput={event => handleFilter(event, setFilteredDataTo, setInputTo)} 
+                        onInput={event => handleFilter(event, setFilteredDataTo, setInputTo)}
                     />
                     {filteredDataTo.length !== 0 && 
                         <StyledDropDown setCustomInput={setInputTo} 
@@ -175,16 +176,12 @@ const TicketSearch = (props) => {
                     </InputSubWrapper>
 
                 </InputWrapper>
-
-                    <DatePicker 
-                        placeholderText="Выберите дату"
-                        className="datepicker"
-                        selected={inputDate}
-                        dateFormat="yyyy-MM-dd"
-                        onChange={handleInput}
-                        minDate={new Date()}
-                        required={true}
-                    />
+                    <div onClick={changeVisibility}>{fullDate ? `Date:${fullDate}` : "Выберите дату"}</div>
+                    {dateVisibility === true && 
+                    <Calendar onClick={handleInput}
+                              setFullDate={setFullDate}
+                              setDateVisibility={setDateVisibility}
+                    />}
 
                     <StyledButton title="Submit" 
                         children={"Поиск"}

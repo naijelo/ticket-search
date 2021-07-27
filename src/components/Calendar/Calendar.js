@@ -5,12 +5,12 @@ const CalendarHeader = styled.div `
     display: flex;
 `
 const CalendarMain  = styled.div `
-    border: 1px solid blue;
+    border: 1px solid white;
 `
 
-const Calendar = ({actualDate}) => {
+const Calendar = ({setFullDate, setDateVisibility}) => {
 
-const [date, setDate] = useState(actualDate);
+const [date, setDate] = useState(new Date());
 
 const yearNames = [2021, 2022, 2023];
 const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
@@ -41,21 +41,25 @@ const changeSelect = () => {
     setDate(date);
 }
 const clickOnDate = (date) => {
-    console.log(date);
-    setDate(date);
+    const fullDateTemp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    // setDate(date);
+    // console.log(date);
+    setFullDate(fullDateTemp);
+    console.log(fullDateTemp);
+    setDateVisibility(false);
+
 }
 
 // fill calendar with data
-const monthDataTemp = [];
-const monthDataTemp2 = [];
-const tempDateFirstMonth = new Date(year, month);
-const tempDateSecondMonth = new Date(year, month + 1);
+const primaryMonthDate = new Date(year, month);
+const secondaryMonthDate = new Date(year, (month + 1));
 
-const fillMonthData = (monthData, tempDate) => {
+const fillMonthData = (tempDate, a) => {
+    const monthData = [];
     const daysInMonth = daysByMonth[tempDate.getMonth()];
     const emptyMonthStart = emptyDaysOnStartOfMonth[tempDate.getDay()];
     let day = 1;
-
+    
     for (let i = 0; i < (daysInMonth + emptyMonthStart) / 7; i++) {
         monthData[i] = [];
         
@@ -63,15 +67,14 @@ const fillMonthData = (monthData, tempDate) => {
             if ((i === 0 && j < emptyMonthStart) || day > daysInMonth) {
                 monthData[i][j] = undefined;
             } else {
-                monthData[i][j] = new Date(year, month, day++);
+                monthData[i][j] = new Date(year, month+a , day++);
             }
         }
     }
     return monthData;
 }
-
-const firstMonthResult = fillMonthData(monthDataTemp, tempDateFirstMonth);
-const secondMonthResult = fillMonthData(monthDataTemp2, tempDateSecondMonth);
+const firstMonthResult = fillMonthData(primaryMonthDate, 0);
+const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
 
     return (
         <>
