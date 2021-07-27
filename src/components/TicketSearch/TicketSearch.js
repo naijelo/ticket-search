@@ -37,6 +37,15 @@ const InputSubWrapper = styled.div`
     flex-direction:column;
 `
 
+const DatePickerWrapper = styled.div `
+    background-color: #fff;
+    cursor: pointer;
+    margin: 10px auto;
+    text-align: center;
+    width: 20%;
+    border-radius: 4px;
+`
+
 const TicketSearch = (props) => {
 
     
@@ -100,7 +109,7 @@ const TicketSearch = (props) => {
                 return value.name.toLowerCase().includes(event.target.value.toLowerCase());
             }));
         }
-        setWordEntered(event.target.value);
+        setWordEntered(event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1));
     };
 
     //make object from received data and send it to server
@@ -151,7 +160,8 @@ const TicketSearch = (props) => {
                 >
                 <InputWrapper>
                     <InputSubWrapper>
-                    <StyledInput label={"Откуда"} 
+                    <StyledInput label={"Откуда"}
+                        autoFocus={true} 
                         value={inputFrom}
                         onInput={event => handleFilter(event, setFilteredDataFrom, setInputFrom)} 
                     />
@@ -176,7 +186,9 @@ const TicketSearch = (props) => {
                     </InputSubWrapper>
 
                 </InputWrapper>
-                    <div onClick={changeVisibility}>{fullDate ? `Date:${fullDate}` : "Выберите дату"}</div>
+                    <DatePickerWrapper onClick={changeVisibility}>
+                        {fullDate ? `Date:${fullDate}` : "Выберите дату"}
+                    </DatePickerWrapper>
                     {dateVisibility === true && 
                     <Calendar onClick={handleInput}
                               setFullDate={setFullDate}
