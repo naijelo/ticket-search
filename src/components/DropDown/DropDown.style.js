@@ -18,8 +18,9 @@ export const StyledDropDown = styled(DropDown) `
         text-align: center;
         margin: 0px;
         padding: 0px;
-        @media (max-width: 575px) {
-            width: 50%;
-        }
+    }
+    @media (max-width: 575px) {
+        width: 100%;
+        max-width: 45%;
     }
 `

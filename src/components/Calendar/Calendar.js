@@ -51,7 +51,6 @@ const clickOnDate = (date) => {
     setDate(date);
     setFullDate(fullDateTemp);
     setDateVisibility(false);
-
 }
 
 // fill calendar with data
