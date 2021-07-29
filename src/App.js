@@ -1,4 +1,3 @@
-import "./App.css";
 import TicketSearch from "./components/TicketSearch/TicketSearch";
 import {GlobalStyles} from "./GlobalStyles.style";
 

@@ -3,12 +3,18 @@ import styled from "styled-components";
 
 const CalendarHeader = styled.div `
     display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 `
 const CalendarMain  = styled.div `
     border: 1px solid white;
 `
 
-const Calendar = ({setFullDate, setDateVisibility}) => {
+const CalendarMainWrapper = styled.div`
+    display: flex;
+`
+
+const Calendar = ({setFullDate, setDateVisibility, ...rest}) => {
 
 const [date, setDate] = useState(new Date());
 
@@ -42,10 +48,8 @@ const changeSelect = () => {
 }
 const clickOnDate = (date) => {
     const fullDateTemp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-    // setDate(date);
-    // console.log(date);
+    setDate(date);
     setFullDate(fullDateTemp);
-    console.log(fullDateTemp);
     setDateVisibility(false);
 
 }
@@ -77,7 +81,7 @@ const firstMonthResult = fillMonthData(primaryMonthDate, 0);
 const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
 
     return (
-        <>
+        <div {...rest}>
         <CalendarHeader>
             <button onClick={moveToPrevMonth}>&lt;</button>
             
@@ -97,7 +101,8 @@ const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
             </select>
             <button onClick={moveToNextMonth}>&gt;</button>
         </CalendarHeader>
-        <CalendarMain>
+        <CalendarMainWrapper>
+        <CalendarMain >
             <table>
             <caption>{monthNames[date.getMonth()]}</caption>
                 <thead>
@@ -111,7 +116,8 @@ const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
                 <tbody>
                     {firstMonthResult.map((week, index) =>
                         <tr key={index} 
-                            className="week">
+                            className="week"
+                            >
                             {week.map((date, index) => date 
                                 ? <td key={index}
                                         onClick={() => clickOnDate(date)}>
@@ -137,7 +143,8 @@ const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
                 <tbody>
                     {secondMonthResult.map((week, index) =>
                         <tr key={index} 
-                            className="week">
+                            className="week"
+                            >
                             {week.map((date, index) => date 
                                 ? <td key={index}
                                         onClick={() => clickOnDate(date)}>
@@ -149,7 +156,8 @@ const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
                 </tbody>
                 </table>
         </CalendarMain>
-        </>
+        </CalendarMainWrapper>
+        </div>
     )
 }
 

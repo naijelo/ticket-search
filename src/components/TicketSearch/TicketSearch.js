@@ -5,7 +5,7 @@ import { StyledInput } from "../Input/Input.style.js";
 import { StyledPagination } from "../Pagination/Pagination.style.js";
 import { StyledDropDown } from "../DropDown/DropDown.style.js";
 import { StyledCards } from "../Cards/Cards.style.js";
-import Calendar from "../Calendar/Calendar";
+import { DatePicker } from "../Calendar/Calendar.style.js";
 
 import * as axios from "axios";
 import jsondata from '../Input/cities.json';
@@ -13,38 +13,47 @@ import jsondata from '../Input/cities.json';
 import styled from "styled-components";
 
 const TicketWrapper = styled.form `
-    margin: 0 auto;
+    margin-top: 30vh;
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media (max-width: 575px) {
-        justify-content: start;
-    }
-`
-const InputWrapper = styled.div `
-    display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
     @media (max-width: 575px) {
+        display: flex;
+        justify-content: center;
         flex-direction: column;
+        align-items: center;
     }
 `
 
 const InputSubWrapper = styled.div`
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
+    margin-right: 2px;
+    width: 20vw;
+    height: 40px;
+    margin-right: 10px;
+    @media (max-width: 575px) {
+       margin-bottom: 10px;
+    }
 `
 
 const DatePickerWrapper = styled.div `
+    position: relative;
     background-color: #fff;
     cursor: pointer;
-    margin: 10px auto;
-    text-align: center;
-    width: 20%;
+    width: 20vw;
+    height: 40px;
     border-radius: 4px;
+    margin-right: 1px;
+    text-align: center;
+    line-height: 35px;
 `
+const CalendarWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
 
 const TicketSearch = (props) => {
 
@@ -60,7 +69,7 @@ const TicketSearch = (props) => {
     const [inputTo, setInputTo] = useState("");
     
     //get date from inputs
-    const [inputDate, setInputDate] = useState("");
+    // const [inputDate, setInputDate] = useState("");
     const [fullDate, setFullDate] = useState("");
     
     //filter state and arrow of data from server
@@ -143,12 +152,12 @@ const TicketSearch = (props) => {
         }
     }
 
-    //get date from date-input
-    const handleInput = (date) => {
-        const fullDateTemp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-        setFullDate(fullDateTemp);
-        setInputDate(date);
-    }
+    // get date from date-input
+    // const handleInput = (date) => {
+    //     const fullDateTemp = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    //     setFullDate(fullDateTemp);
+    //     setInputDate(date);
+    // }
 
     //visibility of calendar
     let changeVisibility = () => setDateVisibility(!dateVisibility);
@@ -158,9 +167,10 @@ const TicketSearch = (props) => {
             <TicketWrapper
                 onSubmit={handleSubmit}
                 >
-                <InputWrapper>
-                    <InputSubWrapper>
-                    <StyledInput label={"Откуда"}
+                <InputSubWrapper>
+                    <StyledInput 
+                        // label={"Откуда"}
+                        placeholder="Откуда"
                         autoFocus={true} 
                         value={inputFrom}
                         onInput={event => handleFilter(event, setFilteredDataFrom, setInputFrom)} 
@@ -171,10 +181,12 @@ const TicketSearch = (props) => {
                             filteredData={filteredDataFrom} 
                             setFilteredData={setFilteredDataFrom}
                             addCity={addCity}/>}
-                    </InputSubWrapper>
+                </InputSubWrapper>
 
-                    <InputSubWrapper>
-                    <StyledInput label={"Куда"} 
+                <InputSubWrapper>
+                    <StyledInput 
+                        // label={"Куда"} 
+                        placeholder="Куда"
                         value={inputTo}
                         onInput={event => handleFilter(event, setFilteredDataTo, setInputTo)}
                     />
@@ -183,17 +195,18 @@ const TicketSearch = (props) => {
                             filteredData={filteredDataTo} 
                             setFilteredData={setFilteredDataTo}
                             addCity={addCity}/>}
-                    </InputSubWrapper>
+                </InputSubWrapper>
 
-                </InputWrapper>
+                <CalendarWrapper>
                     <DatePickerWrapper onClick={changeVisibility}>
-                        {fullDate ? `Date:${fullDate}` : "Выберите дату"}
+                        {fullDate ? `Дата: ${fullDate}` : "Дата"}
                     </DatePickerWrapper>
                     {dateVisibility === true && 
-                    <Calendar onClick={handleInput}
+                    <DatePicker
                               setFullDate={setFullDate}
                               setDateVisibility={setDateVisibility}
                     />}
+                </CalendarWrapper>
 
                     <StyledButton title="Submit" 
                         children={"Поиск"}

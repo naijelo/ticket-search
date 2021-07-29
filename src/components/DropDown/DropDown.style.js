@@ -4,15 +4,15 @@ import DropDown from "./DropDown";
 export const StyledDropDown = styled(DropDown) `
     position: absolute;
     z-index: 10;
-    width: 100%; 
+    width: 100%;
     max-height: 300px; 
-    max-width: 20vw;
+    max-width: 18%;
     overflow-x: hidden;
     cursor: pointer;
-    margin-top: 26px;
-    margin-left: 35px;
+    margin-top: 43px;
     color: #000; 
     background: #fff; 
+
     li {
         list-style: none;
         text-align: center;
