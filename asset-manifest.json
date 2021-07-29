@@ -1,23 +1,20 @@
 {
   "files": {
-    "main.css": "/ticket-search/static/css/main.b99e17e9.chunk.css",
-    "main.js": "/ticket-search/static/js/main.6affc409.chunk.js",
-    "main.js.map": "/ticket-search/static/js/main.6affc409.chunk.js.map",
+    "main.css": "/ticket-search/static/css/main.cb8513a0.chunk.css",
+    "main.js": "/ticket-search/static/js/main.fe055ba1.chunk.js",
+    "main.js.map": "/ticket-search/static/js/main.fe055ba1.chunk.js.map",
     "runtime-main.js": "/ticket-search/static/js/runtime-main.4dea85c5.js",
     "runtime-main.js.map": "/ticket-search/static/js/runtime-main.4dea85c5.js.map",
-    "static/css/2.5b5b985f.chunk.css": "/ticket-search/static/css/2.5b5b985f.chunk.css",
-    "static/js/2.1990d729.chunk.js": "/ticket-search/static/js/2.1990d729.chunk.js",
-    "static/js/2.1990d729.chunk.js.map": "/ticket-search/static/js/2.1990d729.chunk.js.map",
+    "static/js/2.2461616d.chunk.js": "/ticket-search/static/js/2.2461616d.chunk.js",
+    "static/js/2.2461616d.chunk.js.map": "/ticket-search/static/js/2.2461616d.chunk.js.map",
     "index.html": "/ticket-search/index.html",
-    "static/css/2.5b5b985f.chunk.css.map": "/ticket-search/static/css/2.5b5b985f.chunk.css.map",
-    "static/css/main.b99e17e9.chunk.css.map": "/ticket-search/static/css/main.b99e17e9.chunk.css.map",
-    "static/js/2.1990d729.chunk.js.LICENSE.txt": "/ticket-search/static/js/2.1990d729.chunk.js.LICENSE.txt"
+    "static/css/main.cb8513a0.chunk.css.map": "/ticket-search/static/css/main.cb8513a0.chunk.css.map",
+    "static/js/2.2461616d.chunk.js.LICENSE.txt": "/ticket-search/static/js/2.2461616d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4dea85c5.js",
-    "static/css/2.5b5b985f.chunk.css",
-    "static/js/2.1990d729.chunk.js",
-    "static/css/main.b99e17e9.chunk.css",
-    "static/js/main.6affc409.chunk.js"
+    "static/js/2.2461616d.chunk.js",
+    "static/css/main.cb8513a0.chunk.css",
+    "static/js/main.fe055ba1.chunk.js"
   ]
 }
