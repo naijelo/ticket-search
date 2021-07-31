@@ -1,20 +1,27 @@
 import React from "react";
-import DropDown from "./DropDown";
+import {StyledDropDown} from "./DropDown.style.js";
 
 export default {
-    title: "DropDown",
-    component: DropDown
+    title: "StyledDropDown",
+    component: StyledDropDown
 }
 
-const filteredDataFake = ["Москва", "Минск", "Владивосток", "Кострома", "Канберра"];
+const filteredDataFake = [{name:"Москва"}, {name:"Минск"}, {name:"Владивосток"}, {name:"Кострома"}, {name:"Канберра"}, {name:"Канберра"}];
 
-export const WhiteTheme = () => <DropDown 
-        theme="dropdown__lighttheme"
-        // addCity={addCity}
-        filteredData={["Москва", "Минск", "Владивосток", "Кострома", "Канберра"]}
-        />
+const Template = (args) => <StyledDropDown {...args}/>
 
-export const BlackTheme = () => <DropDown 
-        theme="dropdown__darktheme"
-        filteredData={["Москва", "Минск", "Владивосток", "Кострома", "Канберра"]}
-        />
+export const WhiteTheme = Template.bind({});
+WhiteTheme.args = {
+        children: "WhiteTheme",
+        dropdownBackColor: "white",
+        dropdownColor: "black",
+        filteredData:filteredDataFake
+    }
+
+export const DarkTheme = Template.bind({});
+DarkTheme.args = {
+        children: "DarkTheme",
+        dropdownBackColor: "black",
+        dropdownColor: "white",
+        filteredData:filteredDataFake
+    }

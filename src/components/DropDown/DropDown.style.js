@@ -11,7 +11,8 @@ export const StyledDropDown = styled(DropDown) `
     cursor: pointer;
     margin-top: 43px;
     color: #000; 
-    background: #fff; 
+    color: ${props => props.dropdownColor || "#000"};
+    background-color: ${props => props.dropdownBackColor || "#fff"};
 
     li {
         list-style: none;
