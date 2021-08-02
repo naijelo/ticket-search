@@ -2,7 +2,7 @@ import React from "react";
 import {StyledButton} from "./Button.style.js";
 
 export default {
-    title: "StyledButton",
+    title: "Button",
     component: StyledButton
 }
 

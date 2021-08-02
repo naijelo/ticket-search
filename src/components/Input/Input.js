@@ -1,12 +1,12 @@
 import React from "react";
 
-const Input = ({variant = "medium", children, label, ...rest}) => {
+const Input = ({children, label, ...rest}) => {
 
     return (
         <div>
             <label>{label}
                 <input type="text" 
-                    className={`input ${variant}`} 
+                    className={`input`} 
                     required 
                     {...rest}/>
             </label>

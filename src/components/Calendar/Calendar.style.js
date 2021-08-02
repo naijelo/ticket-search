@@ -10,10 +10,11 @@ export const DatePicker = styled(Calendar)`
 
     td {
         box-sizing: border-box;
-
+    }
+    .day {
         &:hover {
-            box-shadow: 0 0 0 1px white;
-            cursor: pointer;
+        box-shadow: 0 0 0 1px white;
+        cursor: pointer;
         }
     }
     @media (max-width: 575px) {

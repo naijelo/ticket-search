@@ -119,6 +119,7 @@ const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
                             >
                             {week.map((date, index) => date 
                                 ? <td key={index}
+                                        className="day"
                                         onClick={() => clickOnDate(date)}>
                                         {date.getDate()}</td>
                                 : <td key={index} />
@@ -145,7 +146,8 @@ const secondMonthResult = fillMonthData(secondaryMonthDate, 1);
                             className="week"
                             >
                             {week.map((date, index) => date 
-                                ? <td key={index}
+                                ? <td className="day"
+                                        key={index}
                                         onClick={() => clickOnDate(date)}>
                                         {date.getDate()}</td>
                                 : <td key={index} />

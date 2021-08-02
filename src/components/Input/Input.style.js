@@ -5,7 +5,8 @@ export const StyledInput = styled(Input)`
     position: relative;
     border-radius: 4px;
     width: 100%;
-    height: 38px;
+    /* height: 38px; */
     outline: none;
     border: none;
+    height: ${props => props.inputHeight || "38px"};
 `

@@ -2,7 +2,7 @@ import React from "react";
 import {StyledDropDown} from "./DropDown.style.js";
 
 export default {
-    title: "StyledDropDown",
+    title: "DropDown",
     component: StyledDropDown
 }
 

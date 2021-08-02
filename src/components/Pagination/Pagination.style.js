@@ -8,11 +8,12 @@ export const StyledPagination = styled(Pagination)`
     li {
         list-style: none;
         &:hover {
-            background-color: white;
+            background-color: ${props => props.pagiBGColor || "white"};
         }
     }
     a {
-        color: black;
+        /* color: black; */
+        color: ${props => props.pagiColor || "black"};
         float: left;
         padding: 4px 4px;
         text-decoration: none;
