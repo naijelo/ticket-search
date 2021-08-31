@@ -56,26 +56,25 @@ const TicketSearch = (props) => {
             setLoading(true);
             const response = await axios.get("/cities.json");
             setCities(response.data);
-            if (!response) {
-                setCities(jsondata);
-            }
+            // if (!response) {
+            //     setCities(jsondata);
+            // }
             setLoading(false);
         }
         fetchData();
     }, []);
     
     //implement filter to find matches in response and input
-    const handleFilter = (event, setFilteredData, setWordEntered) => {
-        
-        if (event.target.value === "") {
-            setFilteredData([]);
-        } else {
-            setFilteredData(cities.filter((value) => {
-                return value.name.toLowerCase().includes(event.target.value.toLowerCase());
-            }));
-        }
-        setWordEntered(event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1));
-    };
+const handleFilter = (event, setFilteredData, setWordEntered) => {
+    if (event.target.value === "") {
+        setFilteredData([]);
+    } else {
+        setFilteredData(cities.filter((value) => {
+            return value.name.toLowerCase().includes(event.target.value.toLowerCase());
+        }));
+    }
+    setWordEntered(event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1));
+};
 
     //make object from received data and send it to server
     const handleSubmit = (event) => {

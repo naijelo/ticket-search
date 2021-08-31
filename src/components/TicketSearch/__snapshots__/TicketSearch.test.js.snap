@@ -1,0 +1,381 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Button Primary 1`] = `
+<button
+  className="sc-eCApnc hlZrKE"
+  inputColor="#ffa928"
+>
+  Primary
+</button>
+`;
+
+exports[`Storyshots Button Secondary 1`] = `
+<button
+  className="sc-eCApnc kuZrco"
+  inputColor="grey"
+>
+  Secondary
+</button>
+`;
+
+exports[`Storyshots DropDown Dark Theme 1`] = `
+<ul
+  className="sc-iCoGMd brSBGG"
+  dropdownBackColor="black"
+  dropdownColor="white"
+>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Москва
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Минск
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Владивосток
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Кострома
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Канберра
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Канберра
+  </li>
+</ul>
+`;
+
+exports[`Storyshots DropDown White Theme 1`] = `
+<ul
+  className="sc-iCoGMd iUbvNu"
+  dropdownBackColor="white"
+  dropdownColor="black"
+>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Москва
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Минск
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Владивосток
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Кострома
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Канберра
+  </li>
+  <li
+    className="from"
+    onClick={[Function]}
+  >
+    Канберра
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Input Large 1`] = `
+<div>
+  <label>
+    <input
+      className="sc-jSFjdj hlrREt"
+      inputHeight="76px"
+      required={true}
+      type="text"
+    />
+  </label>
+</div>
+`;
+
+exports[`Storyshots Input Standart 1`] = `
+<div>
+  <label>
+    <input
+      className="sc-jSFjdj hjfOvn"
+      inputHeight="38px"
+      required={true}
+      type="text"
+    />
+  </label>
+</div>
+`;
+
+exports[`Storyshots Pagination Dark Pagination 1`] = `
+<nav
+  className="sc-gKAaRy facYno"
+  pagiBGColor="black"
+  pagiColor="white"
+>
+  <ul
+    className="pagination"
+  >
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        1
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        2
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        3
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        4
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        5
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        6
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        7
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        8
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        9
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        10
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`Storyshots Pagination Light Pagination 1`] = `
+<nav
+  className="sc-gKAaRy eSLWXE"
+  pagiBGColor="white"
+  pagiColor="black"
+>
+  <ul
+    className="pagination"
+  >
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        1
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        2
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        3
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        4
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        5
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        6
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        7
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        8
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        9
+      </a>
+    </li>
+    <li
+      className="pageItem"
+    >
+      <a
+        className="pageLink"
+        href="!#"
+        onClick={[Function]}
+      >
+        10
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
